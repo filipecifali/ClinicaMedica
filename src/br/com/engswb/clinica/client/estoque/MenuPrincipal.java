@@ -44,7 +44,19 @@ public class MenuPrincipal implements EntryPoint {
         //BARRA DE MENU, ITEM PRINCIPAL GRUPO1
         barraMenu.addItem("Grupo1",grupo1);
         //BARRA DE MENU, ITEM PRINCIPAL GRUPO2
-        barraMenu.addItem("Grupo2",grupo2);
+        MenuItem menuItem = barraMenu.addItem("Grupo2",grupo2);
+        
+        MenuItem mntmAgendarConsulta = new MenuItem("Agendar Consulta", false, new Command() {
+        	public void execute() {
+        	}
+        });
+        mntmAgendarConsulta.setHTML("Agendar Consulta");
+        grupo2.addItem(mntmAgendarConsulta);
+        
+        MenuItem menuVerProntuario = new MenuItem("Consultar Prontuario", false, (Command) null);
+        menuVerProntuario.setHTML("Consultar Prontuario");
+        grupo2.addItem(menuVerProntuario);
+        menuItem.setHTML("Atendimento");
         //BARRA DE MENU, ITEM PRINCIPAL GRUPO3
         barraMenu.addItem("Grupo3",grupo3);
         //BARRA DE MENU, ITEM PRINCIPAL ESTOQUE
