@@ -33,8 +33,8 @@ public class AgendaConsulta implements EntryPoint {
 		InlineHTML inlineHTML = new InlineHTML("<hr>");
 		absolutePanel.add(inlineHTML);
 		
-		InlineHTML inlineHTML_1 = new InlineHTML("<form>\r\n\t<label text=\"Nome do Paciente\"><input type=\"text\" placeholder=\"Nome do Paciente\" />\r\n\t<input type=\"submit\" value=\"Enviar Cadastro\">\r\n</form>");
-		absolutePanel.add(inlineHTML_1);
+		Label lblNewLabel = new Label("New label");
+		absolutePanel.add(lblNewLabel);
 		
 		AbsolutePanel absolutePanel_1 = new AbsolutePanel();
 		tabLayoutPanel.add(absolutePanel_1, "Visualizar Agendamento", false);

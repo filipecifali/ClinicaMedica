@@ -48,6 +48,13 @@ public class MenuPrincipal implements EntryPoint {
         
         MenuItem mntmAgendarConsulta = new MenuItem("Agendar Consulta", false, new Command() {
         	public void execute() {
+        		
+    			AgendaConsulta agenda = new AgendaConsulta();    		    
+    		    //RootPanel.();
+    			agenda.onModuleLoad();
+    			//absolutePanel.add(med, 30, 30);
+    		    //med.
+        		
         	}
         });
         mntmAgendarConsulta.setHTML("Agendar Consulta");
