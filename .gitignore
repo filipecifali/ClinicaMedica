@@ -1,0 +1,2 @@
+*.log
+/src/br/com/engswb/clinica/server/MySQLConnection.java
