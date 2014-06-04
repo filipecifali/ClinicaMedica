@@ -12,8 +12,8 @@ public class AgendaConsulta implements EntryPoint {
 		TabLayoutPanel tabLayoutPanel = new TabLayoutPanel(1.5, Unit.EM);
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel, "Nova Consulta", false);
-		absolutePanel.setWidth("490px");
+		tabLayoutPanel.add(absolutePanel, "Agendar Consulta", false);
+		absolutePanel.setWidth("625px");
 		
 		InlineHTML nlnhtmlinformaesDoPaciente = new InlineHTML("<h1>Informa\u00E7\u00F5es do Paciente</h1>");
 		absolutePanel.add(nlnhtmlinformaesDoPaciente);
@@ -21,50 +21,52 @@ public class AgendaConsulta implements EntryPoint {
 		InlineHTML inlineHTML = new InlineHTML("<hr>");
 		absolutePanel.add(inlineHTML);
 		
-		Label lblNewLabel = new Label("Pesquisar paciente por nome");
+		Label lblNewLabel = new Label("Cadastro de consulta");
 		absolutePanel.add(lblNewLabel, 20, 68);
 		lblNewLabel.setSize("130px", "34px");
 		
 		TextBox textBox = new TextBox();
-		absolutePanel.add(textBox, 178, 68);
+		absolutePanel.add(textBox, 120, 130);
 		
-		Button btnPesquisar = new Button("Pesquisar");
-		absolutePanel.add(btnPesquisar, 388, 72);
+		Button btnCadastrarConsulta = new Button("CadastrarConsulta");
+		absolutePanel.add(btnCadastrarConsulta, 348, 130);
+		btnCadastrarConsulta.setSize("169px", "34px");
 		
 		InlineHTML nlnhtmlNome = new InlineHTML("Nome");
 		absolutePanel.add(nlnhtmlNome, 20, 143);
 		
-		InlineHTML nlnhtmlNewInlinehtml = new InlineHTML("");
-		absolutePanel.add(nlnhtmlNewInlinehtml, 178, 143);
-		
 		InlineHTML nlnhtmlNewInlinehtml_1 = new InlineHTML("Idade");
 		absolutePanel.add(nlnhtmlNewInlinehtml_1, 20, 183);
-		
-		InlineHTML inlineHTML_1 = new InlineHTML("");
-		absolutePanel.add(inlineHTML_1, 178, 183);
 		
 		InlineHTML nlnhtmlNewInlinehtml_2 = new InlineHTML("Contato");
 		absolutePanel.add(nlnhtmlNewInlinehtml_2, 20, 224);
 		
-		InlineHTML inlineHTML_2 = new InlineHTML("");
-		absolutePanel.add(inlineHTML_2, 178, 224);
-		
 		InlineHTML nlnhtmlSexo = new InlineHTML("Sexo");
 		absolutePanel.add(nlnhtmlSexo, 20, 266);
 		
-		InlineHTML inlineHTML_3 = new InlineHTML("");
-		absolutePanel.add(inlineHTML_3, 178, 266);
+		TextBox textBox_1 = new TextBox();
+		absolutePanel.add(textBox_1, 120, 170);
+		
+		TextBox textBox_2 = new TextBox();
+		absolutePanel.add(textBox_2, 120, 210);
+		
+		TextBox textBox_3 = new TextBox();
+		absolutePanel.add(textBox_3, 120, 250);
+		
+		DateBox dateBox = new DateBox();
+		absolutePanel.add(dateBox, 120, 290);
+		dateBox.setSize("159px", "16px");
+		
+		Button btnNewButton = new Button("Limpar dados");
+		absolutePanel.add(btnNewButton, 423, 170);
 		
 		AbsolutePanel absolutePanel_1 = new AbsolutePanel();
 		tabLayoutPanel.add(absolutePanel_1, "Visualizar Agendamento", false);
 		
-		AbsolutePanel absolutePanel_2 = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel_2, "Consulta de Pre\u00E7os", false);
-		
 		AbsolutePanel absolutePanel_3 = new AbsolutePanel();
 		tabLayoutPanel.add(absolutePanel_3, "Hist\u00F3rico", false);
 		rootPanel.add(tabLayoutPanel, 10, 10);
-		tabLayoutPanel.setSize("633px", "375px");
+		tabLayoutPanel.setSize("640px", "480px");
 		
 	}
 }
