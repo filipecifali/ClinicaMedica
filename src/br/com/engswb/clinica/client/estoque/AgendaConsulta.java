@@ -46,8 +46,6 @@ public class AgendaConsulta implements EntryPoint {
 				String idade = getTxtIdade().getText();
 				int genero = cmbSexo().getSelectedIndex();
 				
-				
-				
 			}
 		});
 		absolutePanel.add(btnCadastrarConsulta, 134, 330);
