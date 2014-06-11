@@ -2,3 +2,5 @@
 /src/br/com/engswb/clinica/server/MySQLConnection.java
 *.project
 *.classpath
+/war/*
+/gwt-unitCache/*
