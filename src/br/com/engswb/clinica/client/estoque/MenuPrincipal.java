@@ -1,11 +1,18 @@
 package br.com.engswb.clinica.client.estoque;
 
+import java.sql.SQLException;
+
+import br.com.engswb.clinica.shared.Fornecedor;
+
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTML;
@@ -15,6 +22,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.sun.java.swing.plaf.windows.resources.windows;
 import com.google.gwt.user.client.ui.MenuItem;
+import java.sql.SQLException;
 
 public class MenuPrincipal implements EntryPoint {
     
@@ -34,10 +42,28 @@ public class MenuPrincipal implements EntryPoint {
     			med.onModuleLoad();
     			//absolutePanel.add(med, 30, 30);
     		    //med.
+    			DBConnectionAsync rpcService = (DBConnectionAsync) GWT.create(DBConnection.class);
+    		    ServiceDefTarget target = (ServiceDefTarget) rpcService;
+    		    String moduleRelativeURL = GWT.getModuleBaseURL() + "MySQLConnection";
+    		    target.setServiceEntryPoint(moduleRelativeURL);
+    		    
+    		    try {
+					rpcService.retornaFornecedor(new AsyncCallback<Fornecedor>(){
+					    public void onFailure(Throwable caught) {
+					      Window.alert("You got to help me. I don't know what to do. I can't make decisions. I'm a president!");        
+					    }
+
+					    public void onSuccess(Fornecedor result) {
+					      Window.alert("Hey I'm a user with id " + result.getNome());        
+					    }
+					  });
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+    		    
     		}
     	};
-    	
-    	
     	
     	 //DESENVOLVENDO O MENU BAR
         MenuBar barraMenu = new MenuBar();
@@ -89,16 +115,12 @@ public class MenuPrincipal implements EntryPoint {
         
     	absolutePanel.add(barraMenu,1,1);
     	
-        
-        
-        
-        
-        
-        
         RootPanel rootPanel = RootPanel.get();
         rootPanel.setSize("697", "658");
         rootPanel.add(absolutePanel, 10, 119);
         absolutePanel.setSize("657px", "458px");
         //RootPanel.get().add(bt);    
     }    
+    
+    
 }
