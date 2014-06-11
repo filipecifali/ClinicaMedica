@@ -17,7 +17,7 @@ import com.google.gwt.user.client.ui.SimpleRadioButton;
 import com.google.gwt.user.client.ui.DoubleBox;
 import com.google.gwt.user.client.ui.Grid;
 
-public class Movimentos implements EntryPoint {
+public class TelaOpPagamento implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
@@ -28,7 +28,7 @@ public class Movimentos implements EntryPoint {
 		tabLayoutPanel.setAnimationVertical(true);
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel, "Movimentos", false);
+		tabLayoutPanel.add(absolutePanel, "Op. Pagto", false);
 		
 		TextBox textBox = new TextBox();
 		absolutePanel.add(textBox, 54, 11);

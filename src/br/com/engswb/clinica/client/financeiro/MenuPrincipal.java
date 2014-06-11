@@ -34,34 +34,34 @@ public class MenuPrincipal implements EntryPoint {
             	
       	Command comandoMovimentos = new Command(){
     		public void execute(){
-    			Movimentos mov = new Movimentos();    		    
+    			TelaMovimentos mov = new TelaMovimentos();    		    
     		    mov.onModuleLoad();
     		}
     	};    	
     	Command comandoCheques = new Command(){
     		public void execute(){
-    			Cheques che = new Cheques();    		    
+    			TelaCheques che = new TelaCheques();    		    
     		    che.onModuleLoad();
     		}
     	};    	
     	Command comandoOpPagamento = new Command(){
     		public void execute(){
-    			OpPagamento opPag = new OpPagamento();   		    
+    			TelaOpPagamento opPag = new TelaOpPagamento();   		    
     			opPag.onModuleLoad();
     		}
     	};    	
     	Command comandoConvenios = new Command(){
     		public void execute(){
-    			Convenios con = new Convenios();    		    
+    			TelaConvenios con = new TelaConvenios();    		    
     		    con.onModuleLoad();
     		}
     	};    		
         
     	 //Itens do Menu Financeito
-    	financeiro.addItem("Movimentos",comandoMovimentos);
-    	financeiro.addItem("Cheques",comandoCheques);
+    	financeiro.addItem("TelaMovimentos",comandoMovimentos);
+    	financeiro.addItem("TelaCheques",comandoCheques);
     	financeiro.addItem("Opcoes de Pagamento",comandoOpPagamento);
-    	financeiro.addItem("Convenios",comandoConvenios);
+    	financeiro.addItem("TelaConvenios",comandoConvenios);
     	
     	
         //Itens do Menu Estoque
@@ -73,7 +73,7 @@ public class MenuPrincipal implements EntryPoint {
     	estoque.addItem(mntmNewItem_2);    	
     	MenuItem mntmNewItem_3 = new MenuItem("Fornecedores",    false, (Command) null);
     	estoque.addItem(mntmNewItem_3);    	
-    	MenuItem mntmNewItem_4 = new MenuItem("Rel de Estoque", false, (Command) null);
+    	MenuItem mntmNewItem_4 = new MenuItem("Rel de Estoque",  false, (Command) null);
     	estoque.addItem(mntmNewItem_4);
     	
     	absolutePanel.add(barraMenu,1,1);
