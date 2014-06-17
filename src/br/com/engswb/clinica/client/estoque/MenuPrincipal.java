@@ -1,16 +1,22 @@
 package br.com.engswb.clinica.client.estoque;
 
+
+import java.sql.SQLException;
+import br.com.engswb.clinica.shared.Fornecedor;
 import br.com.engswb.clinica.client.financeiro.TelaCheques;
 import br.com.engswb.clinica.client.financeiro.TelaConvenios;
 import br.com.engswb.clinica.client.financeiro.TelaMovimentos;
 import br.com.engswb.clinica.client.financeiro.TelaOpPagamento;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HTML;
@@ -20,10 +26,34 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.sun.java.swing.plaf.windows.resources.windows;
 import com.google.gwt.user.client.ui.MenuItem;
+import java.sql.SQLException;
+
 
 public class MenuPrincipal implements EntryPoint {
     
     public void onModuleLoad() {
+    	
+		
+    	DBConnectionAsync rpcService = (DBConnectionAsync) GWT.create(DBConnection.class);
+	    ServiceDefTarget target = (ServiceDefTarget) rpcService;
+	    String moduleRelativeURL = GWT.getModuleBaseURL() + "MySQLConnection";
+	    target.setServiceEntryPoint(moduleRelativeURL);
+	    
+	    try {
+			rpcService.retornaFornecedor(new AsyncCallback<Fornecedor>(){
+			    public void onFailure(Throwable caught) {
+			      Window.alert("You got to help me. I don't know what to do. I can't make decisions. I'm a president!");        
+			    }
+
+			    public void onSuccess(Fornecedor result) {
+			      Window.alert("Hey I'm a user with id " + result.getNome());        
+			    }
+			  });
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
     	
        	MenuBar grupo1     = new MenuBar(true);
     	MenuBar grupo2     = new MenuBar(true);
