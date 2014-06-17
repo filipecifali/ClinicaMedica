@@ -1,6 +1,9 @@
+package br.com.engswb.clinica.shared;
+
+import com.google.gwt.user.client.rpc.IsSerializable;
 import java.util.Date;
 
-public class Movimento {
+public class Movimento implements IsSerializable {
 	private int id;
 	private double quantia;
 	private int tipo;

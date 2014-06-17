@@ -1,5 +1,9 @@
-package br.com.engswb.clinica.client.financeiro;
+package br.com.engswb.clinica.shared;
 
-public class Cheque {
+import com.google.gwt.user.client.rpc.IsSerializable;
+import java.util.Date;
+
+
+public class Cheque  implements IsSerializable {
 
 }
