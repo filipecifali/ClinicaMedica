@@ -5,17 +5,7 @@
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
 
-  <!-- Servlets -->
-  
-  <servlet>
-        <servlet-name>mySQLConnection</servlet-name>
-        <servlet-class>br.com.engswb.clinica.server.MySQLConnection</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>mySQLConnection</servlet-name>
-        <url-pattern>/clinica/MySQLConnection</url-pattern>
-    </servlet-mapping>
-  
+   
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>ClinicaMedica.html</welcome-file>

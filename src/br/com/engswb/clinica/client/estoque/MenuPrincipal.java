@@ -33,7 +33,7 @@ public class MenuPrincipal implements EntryPoint {
     
     public void onModuleLoad() {
     	
-		
+		/*
     	DBConnectionAsync rpcService = (DBConnectionAsync) GWT.create(DBConnection.class);
 	    ServiceDefTarget target = (ServiceDefTarget) rpcService;
 	    String moduleRelativeURL = GWT.getModuleBaseURL() + "MySQLConnection";
@@ -53,7 +53,7 @@ public class MenuPrincipal implements EntryPoint {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		*/
     	
        	MenuBar grupo1     = new MenuBar(true);
     	MenuBar grupo2     = new MenuBar(true);
