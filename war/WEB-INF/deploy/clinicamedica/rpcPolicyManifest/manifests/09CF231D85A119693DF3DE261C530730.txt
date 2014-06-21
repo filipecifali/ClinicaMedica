@@ -1,0 +1,2 @@
+serviceClass: br.com.engswb.clinica.client.estoque.MedicamentosReq
+path: 75996FDB0FB1E664477E412E67A60913.gwt.rpc
