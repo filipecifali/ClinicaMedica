@@ -1,10 +1,16 @@
 package br.com.engswb.clinica.client.estoque;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.TabBar;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.TextBox;
@@ -16,9 +22,21 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.SimpleRadioButton;
 import com.google.gwt.user.client.ui.DoubleBox;
 import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.Button;
+import br.com.engswb.clinica.shared.estoque.MedicamentosED;;
+
 
 public class Medicamentos implements EntryPoint {
+	/*rpcService.consultaMedicamentos("president_skroob", "12345", new AsyncCallback<User>(){
+	      public void onFailure(Throwable caught) {
+	        Window.alert("You got to help me. I don't know what to do. I can't make decisions. I'm a president!");        
+	      }
 
+	      public void onSuccess(User result) {
+	        Window.alert("Hey I'm a user with id " );        
+	      }
+	    });*/
+	
 	@Override
 	public void onModuleLoad() {
 		RootPanel rootPanel = RootPanel.get();
@@ -56,6 +74,39 @@ public class Medicamentos implements EntryPoint {
 		
 		TextBox textBox_2 = new TextBox();
 		absolutePanel_1.add(textBox_2);
+		
+		Button button = new Button("New button", new ClickHandler() {
+		      public void onClick(ClickEvent event) {
+			        //Window.alert("How high?");
+		    	  	MedicamentosReqAsync rpcService = (MedicamentosReqAsync) GWT.create(MedicamentosReq.class);
+		    	    ServiceDefTarget target = (ServiceDefTarget) rpcService;
+		    	    String moduleRelativeURL = GWT.getModuleBaseURL() + "MedicamentosBD";
+		    	    target.setServiceEntryPoint(moduleRelativeURL);
+		    	    
+		    	    
+	    	    	rpcService.consultaMedicamentos(new AsyncCallback<MedicamentosED>(){
+		  		      public void onFailure(Throwable caught) {
+		  		        Window.alert("PORRA FUDEU!");        
+		  		      }
+
+						@Override
+						public void onSuccess(MedicamentosED result) {
+							// TODO Auto-generated method stub
+							 Window.alert("COMUNICO PORRA!!!!!!" ); 
+						}
+			  		    });
+		    	    
+			      }
+			    }
+		/*DBConnectionAsync rpcService = (DBConnectionAsync) GWT.create(DBConnection.class);
+	    ServiceDefTarget target = (ServiceDefTarget) rpcService;
+	    String moduleRelativeURL = GWT.getModuleBaseURL() + "MySQLConnection";
+	    target.setServiceEntryPoint(moduleRelativeURL);*/
+				
+		
+		
+				);
+		absolutePanel_1.add(button);
 		
 		AbsolutePanel absolutePanel_2 = new AbsolutePanel();
 		tabLayoutPanel.add(absolutePanel_2, "Cota\u00E7\u00F5es", false);

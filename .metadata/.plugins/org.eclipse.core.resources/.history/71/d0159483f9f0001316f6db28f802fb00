@@ -1,0 +1,48 @@
+package br.com.engswb.clinica.server.estoque;
+
+import java.sql.ResultSet;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import br.com.engswb.clinica.server.MySQLConnection;
+import br.com.engswb.clinica.server.estoque.Medicamentos;
+
+
+
+public class MedicamentosBD extends MySQLConnection {
+	private static final long serialVersionUID = 1L;   
+	
+	public Medicamentos consultaMedicamentos(String username, String password) throws Exception {
+	    Medicamentos returnmed = null;
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet result = null;
+	
+	    try {
+	        conn = getConnection();
+	        pstmt = conn.prepareStatement("SELECT * FROM Produtos ");
+	        //pstmt.setString(1, username);
+	        //pstmt.setString(2, password);
+	        result = pstmt.executeQuery();
+	        while (result.next()) {
+	            returnmed = new Medicamentos(result.getInt("idProduto"));
+	        }
+	    } catch (SQLException sqle) {
+	        sqle.printStackTrace();
+	    } finally {
+	        // Cleanup
+	        result.close();
+	        pstmt.close();
+	        conn.close();
+	    }
+	
+	    return returnuser;
+	}
+	
+}

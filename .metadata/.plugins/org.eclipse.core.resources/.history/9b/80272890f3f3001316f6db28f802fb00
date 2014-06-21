@@ -1,0 +1,11 @@
+package br.com.engswb.clinica.client.estoque;
+
+import br.com.engswb.clinica.shared.estoque.Medicamentos;
+
+import com.google.gwt.user.client.rpc.AsyncCallback;
+
+public interface MedicamentosReqAsync {
+
+	void consultaMedicamentos(AsyncCallback<Medicamentos> callback);
+
+}

@@ -1,0 +1,9 @@
+package br.com.engswb.clinica.server.estoque;
+
+import br.com.engswb.clinica.server.*;
+
+public class MedicamentosBD extends MySQLConnection {
+	private static final long serialVersionUID = 1L;   
+	
+	
+}

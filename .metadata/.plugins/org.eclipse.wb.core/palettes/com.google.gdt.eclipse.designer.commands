@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<moveEntry
+		id="com.google.gdt.eclipse.designer.widgets com.google.gwt.user.client.ui.Button"
+		category="com.google.gdt.eclipse.designer.widgets"/>
+	<moveEntry
+		id="com.google.gdt.eclipse.designer.widgets com.google.gwt.user.client.ui.DoubleBox"
+		category="com.google.gdt.eclipse.designer.widgets"
+		nextEntry="com.google.gdt.eclipse.designer.widgets com.google.gwt.user.client.ui.ListBox combo"/>
+</commands>

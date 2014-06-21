@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;br.com.engswb.clinica.client.estoque.Medicamentos&apos; to &apos;Medic&apos;&#x0D;&#x0A;- Original project: &apos;ClinicaMedica&apos;&#x0D;&#x0A;- Original element: &apos;br.com.engswb.clinica.client.estoque.Medicamentos&apos;&#x0D;&#x0A;- Renamed element: &apos;br.com.engswb.clinica.client.estoque.Medic&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Medicamentos&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;br.com.engswb.clinica.client.estoque{Medicamentos.java[Medicamentos" matchStrategy="1" name="Medic" qualified="false" references="true" similarDeclarations="false" stamp="1398050603516" textual="false" version="1.0"/>
+</session>

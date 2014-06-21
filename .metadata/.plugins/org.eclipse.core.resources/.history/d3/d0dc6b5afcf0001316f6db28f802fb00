@@ -1,0 +1,8 @@
+package br.com.engswb.clinica.client.estoque;
+
+import br.com.engswb.clinica.shared.estoque.Medicamentos;
+import com.google.gwt.user.client.rpc.RemoteService;
+
+public interface Medicamentos extends RemoteService {
+	public Medicamentos authenticateUser(String username, String password);
+}

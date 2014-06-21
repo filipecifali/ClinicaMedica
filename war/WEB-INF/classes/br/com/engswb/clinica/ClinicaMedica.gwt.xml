@@ -29,8 +29,9 @@
 	<!-- allow Super Dev Mode -->
 	<add-linker name="xsiframe" />
 	<!--entry-point class="br.com.engswb.clinica.client.estoque.Medic">
-	</entry-point-->
+		</entry-point-->
 	<!--entry-point
 		class="br.com.engswb.clinica.client.estoque.Medicamentos">
-	</entry-point-->
+		</entry-point-->
+	<entry-point class="br.com.engswb.clinica.client.estoque.tela"></entry-point>
 </module>

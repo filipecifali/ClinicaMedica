@@ -5,7 +5,17 @@
          version="2.5"
          xmlns="http://java.sun.com/xml/ns/javaee">
 
-   
+  <!-- Servlets -->
+  
+  <servlet>
+        <servlet-name>MedicamentosBD</servlet-name>
+        <servlet-class>br.com.engswb.clinica.server.estoque.MedicamentosBD</servlet-class>
+  </servlet>
+  <servlet-mapping>
+        <servlet-name>MedicamentosBD</servlet-name>
+        <url-pattern>/clinicamedica/MedicamentosBD</url-pattern>
+  </servlet-mapping>
+  
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>ClinicaMedica.html</welcome-file>
