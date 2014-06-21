@@ -30,6 +30,7 @@ import java.sql.SQLException;
 
 
 public class MenuPrincipal implements EntryPoint {
+	private MenuBar Atendimento;
     
     public void onModuleLoad() {
     	
@@ -56,7 +57,7 @@ public class MenuPrincipal implements EntryPoint {
 		*/
     	
        	MenuBar grupo1     = new MenuBar(true);
-    	MenuBar grupo2     = new MenuBar(true);
+    	MenuBar atendimento     = new MenuBar(true);
     	MenuBar financeiro = new MenuBar(true);
     	MenuBar estoque    = new MenuBar(true);
     	AbsolutePanel absolutePanel = new AbsolutePanel();
@@ -64,7 +65,7 @@ public class MenuPrincipal implements EntryPoint {
     	
     	 MenuBar barraMenu = new MenuBar();     
          barraMenu.addItem("Grupo1",grupo1);    
-         barraMenu.addItem("Atendimento",grupo2);      
+         barraMenu.addItem("Atendimento",atendimento);      
          barraMenu.addItem("Financeiro",financeiro);    
          barraMenu.addItem("Estoque",estoque);
     	
@@ -107,7 +108,17 @@ public class MenuPrincipal implements EntryPoint {
     		    con.onModuleLoad();
     		}
     	};    		
-    	  	
+    	 
+    	Command comandoAgendarConsulta = new Command(){
+    		public void execute(){
+    			AgendaConsulta agdConsula = new AgendaConsulta();
+    			agdConsula.onModuleLoad();
+    		}
+    	};
+    	
+    	atendimento.addItem("AgendarConsulta", comandoAgendarConsulta);
+    	
+    	
     	 //Itens do Menu Financeito
     	financeiro.addItem("TelaMovimentos",comandoMovimentos);
     	financeiro.addItem("TelaCheques",comandoCheques);
@@ -140,4 +151,7 @@ public class MenuPrincipal implements EntryPoint {
         absolutePanel.setSize("657px", "458px");
    
     }    
+	public MenuBar getAtendimento() {
+		return Atendimento;
+	}
 }
