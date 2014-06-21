@@ -70,6 +70,8 @@ public class AgendaConsulta implements EntryPoint {
 				String idade = getTxtIdade().getText();
 				int genero = cmbSexo().getSelectedIndex();
 				
+				//MySql mysql = new MySql(host, database, user, pass)
+				
 			}
 		});
 		absolutePanel.add(btnCadastrarConsulta, 134, 330);
@@ -199,7 +201,7 @@ public class AgendaConsulta implements EntryPoint {
 		
 		AbsolutePanel absolutePanel_3 = new AbsolutePanel();
 		tabLayoutPanel.add(absolutePanel_3, "Hist\u00F3rico", false);
-		rootPanel.add(tabLayoutPanel, 10, 10);
+		rootPanel.add(tabLayoutPanel, 11, 158);
 		tabLayoutPanel.setSize("640px", "480px");
 		
 	}
