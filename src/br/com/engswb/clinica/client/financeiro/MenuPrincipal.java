@@ -20,14 +20,14 @@ public class MenuPrincipal implements EntryPoint {
     
     public void onModuleLoad() {
     	
-    	MenuBar grupo1     = new MenuBar(true);
+    	MenuBar AtendimentoG1     = new MenuBar(true);
     	MenuBar grupo2     = new MenuBar(true);
     	MenuBar financeiro = new MenuBar(true);
     	MenuBar estoque    = new MenuBar(true);
     	AbsolutePanel absolutePanel = new AbsolutePanel();
     	
         MenuBar barraMenu = new MenuBar();     
-        barraMenu.addItem("Grupo1",grupo1);    
+        barraMenu.addItem("AtendimentoG1",AtendimentoG1);
         barraMenu.addItem("Grupo2",grupo2);      
         barraMenu.addItem("Financeiro",financeiro);    
         barraMenu.addItem("Estoque",estoque);
@@ -56,7 +56,8 @@ public class MenuPrincipal implements EntryPoint {
     		    con.onModuleLoad();
     		}
     	};    		
-        
+    	    	
+    	
     	 //Itens do Menu Financeito
     	financeiro.addItem("TelaMovimentos",comandoMovimentos);
     	financeiro.addItem("TelaCheques",comandoCheques);
@@ -65,7 +66,10 @@ public class MenuPrincipal implements EntryPoint {
     	
     	
         //Itens do Menu Estoque
-    	MenuItem mntmNewItem_0 = new MenuItem("Medicamentos",    false, (Command) null);
+    	MenuItem mntmNewItem_0 = new MenuItem("Medicamentos",    false, new Command() {
+    		public void execute() {
+    		}
+    	});
     	estoque.addItem(mntmNewItem_0);
     	MenuItem mntmNewItem_1 = new MenuItem("Medicos",         false, (Command) null);
     	estoque.addItem(mntmNewItem_1);    	
@@ -78,10 +82,44 @@ public class MenuPrincipal implements EntryPoint {
     	
     	absolutePanel.add(barraMenu,1,1);
     	
-        
-        
-        
-        
+    	
+    	
+    	//GRUPO 1
+    	MenuItem CadastroFuncionario = new MenuItem("CadastroFuncionario",    false, new Command() {
+    		
+    		//escrever aqui
+    		
+    		public void execute() {
+    		}
+    	});
+    	AtendimentoG1.addItem(CadastroFuncionario);
+    	MenuItem CadastroPaciente = new MenuItem("CadastroPaciente",         false, new Command() {
+    		
+    		//escrever aqui
+    		
+    		public void execute() {
+    		}
+    	});
+    	AtendimentoG1.addItem(CadastroPaciente);    	
+    	MenuItem CadastroConsulta = new MenuItem("CadastroConsulta",           false, new Command() {
+    		
+    		//escrever aqui
+    		
+    		public void execute() {
+    		}
+    	});
+    	AtendimentoG1.addItem(CadastroConsulta);    	
+    	MenuItem ProntuarioEletronico = new MenuItem("ProntuarioEletronico",    false, new Command() {
+    		
+    		//escrever aqui
+    		
+    		public void execute() {
+    		}
+    	});
+    	AtendimentoG1.addItem(ProntuarioEletronico);    	
+
+    	absolutePanel.add(barraMenu,1,1);
+
         
         
         RootPanel rootPanel = RootPanel.get();

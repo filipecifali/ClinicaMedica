@@ -34,4 +34,10 @@
 		class="br.com.engswb.clinica.client.estoque.Medicamentos">
 		</entry-point-->
 	<entry-point class="br.com.engswb.clinica.client.estoque.tela"></entry-point>
+	<entry-point
+		class="br.com.engswb.clinica.client.atendimentosg1.CadastroFuncionario">
+	</entry-point>
+	<entry-point
+		class="br.com.engswb.clinica.client.atendimentosg1.CadastroPaciente">
+	</entry-point>
 </module>
