@@ -8,6 +8,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.user.cellview.client.CellTable;
 import com.google.gwt.user.cellview.client.CellList;
+import com.google.gwt.user.cellview.client.ColumnSortEvent.ListHandler;
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
@@ -15,8 +16,12 @@ import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.cell.client.SelectionCell;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 import com.google.gwt.user.cellview.client.TextColumn;
+import com.google.gwt.view.client.ListDataProvider;
 
 public class AgendaConsulta implements EntryPoint {
 	private AbsolutePanel absolutePanel;
@@ -35,7 +40,8 @@ public class AgendaConsulta implements EntryPoint {
 		}
 	}
 	
-	
+	private static List<Paciente> CONTACTS = Arrays.asList(new Paciente("John"), new Paciente("Mary"), new Paciente(
+		      "Zander"));
 
 	@Override
 	public void onModuleLoad() {
@@ -55,7 +61,7 @@ public class AgendaConsulta implements EntryPoint {
 		absolutePanel.add(inlineHTML);
 		
 		Label lblNewLabel = new Label("Cadastro de consulta");
-		absolutePanel.add(lblNewLabel, 20, 68);
+		absolutePanel.add(lblNewLabel, 6, 87);
 		lblNewLabel.setSize("130px", "34px");
 		
 		textBox = new TextBox();
@@ -69,6 +75,8 @@ public class AgendaConsulta implements EntryPoint {
 				String contato = txtContato().getText();
 				String idade = getTxtIdade().getText();
 				int genero = cmbSexo().getSelectedIndex();
+				
+				//MySql mysql = new MySql(host, database, user, pass)
 				
 			}
 		});
@@ -118,7 +126,7 @@ public class AgendaConsulta implements EntryPoint {
 		absolutePanel_2.setSize("625px", "460px");
 		
 		InlineHTML nlnhtmlbuscarConsulta = new InlineHTML("<h1>Buscar Consulta</h1>");
-		absolutePanel_2.add(nlnhtmlbuscarConsulta, 6, 6);
+		absolutePanel_2.add(nlnhtmlbuscarConsulta, 6, 0);
 		
 		InlineHTML inlineHTML_2 = new InlineHTML("<hr>");
 		absolutePanel_2.add(inlineHTML_2, 6, 44);
@@ -156,25 +164,56 @@ public class AgendaConsulta implements EntryPoint {
 		
 		
 		
-		CellTable<Object> cellTable = new CellTable<Object>();
+		CellTable<Paciente> cellTable = new CellTable<Paciente>();
 		absolutePanel_2.add(cellTable, 6, 224);
 		cellTable.setSize("198px", "156px");
 		
 		
-		TextColumn<Object> textColumn = new TextColumn<Object>() {
+		TextColumn<Paciente> nameColumn = new TextColumn<Paciente>() {
 			@Override
-			public String getValue(Object object) {
-				return object.toString();
+			public String getValue(Paciente paciente) {
+				return paciente.toString();
 			}
 		};
-		cellTable.addColumn(textColumn, "Nome:");
+		nameColumn.setSortable(true);
 		
-		TextColumn<Object> textColumn_1 = new TextColumn<Object>() {
+		cellTable.addColumn(nameColumn, "Nome:");
+		
+		/*
+		TextColumn<Paciente> textColumn_1 = new TextColumn<Paciente>() {
 			@Override
-			public String getValue(Object object) {
-				return object.toString();
+			public String getValue(Paciente paciente) {
+				return paciente.toString();
 			}
 		};
+		*/
+		ListDataProvider<Paciente> dataProvider = new ListDataProvider<Paciente>();
+
+	    dataProvider.addDataDisplay(cellTable);
+		
+		List<Paciente> list = dataProvider.getList();
+	    for (Paciente paciente : CONTACTS) {
+	      list.add(paciente);
+	    }
+	    
+	    ListHandler<Paciente> columnSortHandler = new ListHandler<AgendaConsulta.Paciente>(
+	            list);
+	        columnSortHandler.setComparator(nameColumn,
+	            new Comparator<AgendaConsulta.Paciente>() {
+	              public int compare(Paciente o1, Paciente o2) {
+	                if (o1 == o2) {
+	                  return 0;
+	                }
+
+	                // Compare the name columns.
+	                if (o1 != null) {
+	                  return (o2 != null) ? o1.nome.compareTo(o2.nome) : 1;
+	                }
+	                return -1;
+	              }
+	            });
+	    
+		/*
 		cellTable.addColumn(textColumn_1, "Data:");
 		
 		TextColumn<Object> textColumn_2 = new TextColumn<Object>() {
@@ -192,14 +231,54 @@ public class AgendaConsulta implements EntryPoint {
 			}
 		};
 		cellTable.addColumn(textColumn_3, "Medico:");
-		
+		*/
 		InlineHTML inlineHTML_1 = new InlineHTML("<hr>");
 		absolutePanel_2.add(inlineHTML_1, 8, 44);
 		inlineHTML_1.setSize("420px", "0px");
 		
 		AbsolutePanel absolutePanel_3 = new AbsolutePanel();
 		tabLayoutPanel.add(absolutePanel_3, "Hist\u00F3rico", false);
-		rootPanel.add(tabLayoutPanel, 10, 10);
+		
+		TextBox textBox_4 = new TextBox();
+		absolutePanel_3.add(textBox_4, 10, 125);
+		textBox_4.setSize("173px", "34px");
+		
+		InlineHTML inlineHTML_4 = new InlineHTML("Nome");
+		absolutePanel_3.add(inlineHTML_4, 10, 101);
+		inlineHTML_4.setSize("34px", "18px");
+		
+		Label label = new Label("Buscar consulta");
+		absolutePanel_3.add(label, 10, 61);
+		label.setSize("130px", "34px");
+		
+		InlineHTML inlineHTML_5 = new InlineHTML("<h1>Histórico das Consultas</h1>");
+		absolutePanel_3.add(inlineHTML_5, 10, 0);
+		inlineHTML_5.setSize("355px", "69px");
+		
+		
+		InlineHTML inlineHTML_6 = new InlineHTML("<hr>");
+		absolutePanel_3.add(inlineHTML_6, 6, 40);
+		
+		CellTable<Paciente> cellTable_1 = new CellTable<Paciente>();
+		absolutePanel_3.add(cellTable_1, 10, 196);
+		cellTable_1.setSize("198px", "156px");
+		
+		TextColumn<Paciente> textColumn = new TextColumn<Paciente>() {
+			public String getValue(Paciente paciente) {
+				return (String) null;
+			}
+		};
+		cellTable_1.addColumn(textColumn, "Nome:");
+		
+		SubmitButton submitButton = new SubmitButton("CadastrarConsulta");
+		submitButton.setHTML("Buscar Consulta");
+		absolutePanel_3.add(submitButton, 122, 420);
+		submitButton.setSize("169px", "34px");
+		
+		Button button = new Button("Limpar dados");
+		absolutePanel_3.add(button, 10, 424);
+		button.setSize("94px", "30px");
+		rootPanel.add(tabLayoutPanel, 11, 158);
 		tabLayoutPanel.setSize("640px", "480px");
 		
 	}
