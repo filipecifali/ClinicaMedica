@@ -7,7 +7,41 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Button;
 
 public class CadastroPaciente implements EntryPoint {
-
+	private TextBox txtNome;
+	private TextBox txtContato;
+	private TextBox txtIdade;
+	private TextBox txtGenero;
+	
+	public TextBox getTxtNome() {
+		return txtNome;
+	}
+	public void setTxtNome(TextBox txtNome) {
+		this.txtNome = txtNome;
+	}
+	public TextBox getTxtContato() {
+		return txtContato;
+	}
+	public void setTxtContato(TextBox txtContato) {
+		this.txtContato = txtContato;
+	}
+	public TextBox getTxtIdade() {
+		return txtIdade;
+	}
+	public void setTxtIdade(TextBox txtIdade) {
+		this.txtIdade = txtIdade;
+	}
+	public TextBox getTxtGenero() {
+		return txtGenero;
+	}
+	public void setTxtGenero(TextBox txtGenero) {
+		this.txtGenero = txtGenero;
+	}
+	public RootPanel getRootPanel() {
+		return rootPanel;
+	}
+	public void setRootPanel(RootPanel rootPanel) {
+		this.rootPanel = rootPanel;
+	}
 	public CadastroPaciente() {
 		// TODO Auto-generated constructor stub
 	}

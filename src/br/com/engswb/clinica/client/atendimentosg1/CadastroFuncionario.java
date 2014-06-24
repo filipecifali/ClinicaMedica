@@ -7,7 +7,77 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Button;
 
 public class CadastroFuncionario implements EntryPoint {
-
+	private TextBox txtNome;
+	private TextBox txtCargo;
+	private TextBox txtContato; 
+	private TextBox txtNis; 
+	private TextBox txtCTPS;
+	private TextBox txtSalario; 
+	private TextBox txtEspecialidade;
+	private TextBox txtCRM; 
+	private TextBox txtSenha; 
+	
+	public TextBox getTxtNome() {
+		return txtNome;
+	}
+	public void setTxtNome(TextBox txtNome) {
+		this.txtNome = txtNome;
+	}
+	public TextBox getTxtCargo() {
+		return txtCargo;
+	}
+	public void setTxtCargo(TextBox txtCargo) {
+		this.txtCargo = txtCargo;
+	}
+	public TextBox getTxtContato() {
+		return txtContato;
+	}
+	public void setTxtContato(TextBox txtContato) {
+		this.txtContato = txtContato;
+	}
+	public TextBox getTxtNis() {
+		return txtNis;
+	}
+	public void setTxtNis(TextBox txtNis) {
+		this.txtNis = txtNis;
+	}
+	public TextBox getTxtCTPS() {
+		return txtCTPS;
+	}
+	public void setTxtCTPS(TextBox txtCTPS) {
+		this.txtCTPS = txtCTPS;
+	}
+	public TextBox getTxtSalario() {
+		return txtSalario;
+	}
+	public void setTxtSalario(TextBox txtSalario) {
+		this.txtSalario = txtSalario;
+	}
+	public TextBox getTxtEspecialidade() {
+		return txtEspecialidade;
+	}
+	public void setTxtEspecialidade(TextBox txtEspecialidade) {
+		this.txtEspecialidade = txtEspecialidade;
+	}
+	public TextBox getTxtCRM() {
+		return txtCRM;
+	}
+	public void setTxtCRM(TextBox txtCRM) {
+		this.txtCRM = txtCRM;
+	}
+	public TextBox getTxtSenha() {
+		return txtSenha;
+	}
+	public void setTxtSenha(TextBox txtSenha) {
+		this.txtSenha = txtSenha;
+	}
+	public RootPanel getRootPanel() {
+		return rootPanel;
+	}
+	public void setRootPanel(RootPanel rootPanel) {
+		this.rootPanel = rootPanel;
+	}
+	
 	public CadastroFuncionario() {
 		// TODO Auto-generated constructor stub
 	}
@@ -49,6 +119,9 @@ public class CadastroFuncionario implements EntryPoint {
 		
 		Label lblSenha = new Label("Senha:");
 		rootPanel.add(lblSenha, 10, 230);
+		
+		
+		
 		
 		TextBox txtNome = new TextBox();
 		rootPanel.add(txtNome, 103, 34);
@@ -92,8 +165,9 @@ public class CadastroFuncionario implements EntryPoint {
 		
 		Button btnLimpar = new Button("Limpar");
 		rootPanel.add(btnLimpar, 203, 257);
-		btnLimpar.setSize("80px", "28px");
+		btnLimpar.setSize("80px", "28px");	
 		// TODO Auto-generated method stub
 
 	}
+
 }
