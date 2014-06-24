@@ -1,4 +1,4 @@
-package br.com.engswb.clinica.shared.estoque;
+package br.com.engswb.clinica.shared;
 
 
 import java.sql.Date;

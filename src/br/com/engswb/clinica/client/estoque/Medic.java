@@ -5,6 +5,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TabPanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.user.client.ui.InlineHTML;
 import com.google.gwt.user.client.ui.TabBar;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.TextBox;
@@ -16,6 +17,8 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.SimpleRadioButton;
 import com.google.gwt.user.client.ui.DoubleBox;
 import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.datepicker.client.DatePicker;
 
 public class Medic implements EntryPoint {
 
@@ -23,35 +26,58 @@ public class Medic implements EntryPoint {
 	public void onModuleLoad() {
 		RootPanel rootPanel = RootPanel.get();
 		
-		TabLayoutPanel tabLayoutPanel = new TabLayoutPanel(1.5, Unit.EM);
-		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel, "Pesquisa", false);
+		rootPanel.add(absolutePanel, 0, 0);
+		absolutePanel.setSize("631px", "363px");
+		
+		InlineHTML nlnhtmlinformaesDoPaciente = new InlineHTML("<h1>Pesquisa de Medicamentos</h1>");
+		absolutePanel.add(nlnhtmlinformaesDoPaciente);
+		
+		InlineHTML inlineHTML = new InlineHTML("<hr>");
+		absolutePanel.add(inlineHTML);
+		
+		
+		Label label = new Label("Nome:");
+		absolutePanel.add(label, 10, 85);
+		label.setSize("47px", "18px");
 		
 		TextBox textBox = new TextBox();
-		absolutePanel.add(textBox, 54, 11);
-		textBox.setSize("144px", "5px");
+		absolutePanel.add(textBox, 56, 85);
+		textBox.setSize("84px", "6px");
 		
-		Grid grid = new Grid(1, 1);
-		absolutePanel.add(grid, 10, 55);
-		grid.setSize("611px", "290px");
+		Label lblVencimento = new Label("Vencimento:");
+		absolutePanel.add(lblVencimento, 349, 85);
+		lblVencimento.setSize("75px", "18px");
 		
-		Label lblNewLabel = new Label("Nome:");
-		absolutePanel.add(lblNewLabel, 10, 11);
+		Label lblPesquisarPor = new Label("Pesquisar por:");
+		absolutePanel.add(lblPesquisarPor, 10, 56);
+		lblPesquisarPor.setSize("94px", "18px");
 		
-		AbsolutePanel absolutePanel_1 = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel_1, "Medicamento", false);
+		ListBox listBox = new ListBox();
+		absolutePanel.add(listBox, 106, 56);
+		listBox.setSize("94px", "18px");
 		
-		AbsolutePanel absolutePanel_2 = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel_2, "Cota\u00E7\u00F5es", false);
+		Button btnNewButton = new Button("New button");
+		btnNewButton.setText("Salvar");
+		absolutePanel.add(btnNewButton, 136, 323);
 		
-		AbsolutePanel absolutePanel_3 = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel_3, "Solicita\u00E7\u00E3o de Compra", false);
+		Button btnNovo = new Button("Novo");
+		btnNovo.setText("Limpar");
+		absolutePanel.add(btnNovo, 195, 323);
 		
-		AbsolutePanel absolutePanel_4 = new AbsolutePanel();
-		tabLayoutPanel.add(absolutePanel_4, "Hist\u00F3rico de Pre\u00E7os", false);
-		absolutePanel_4.setSize("631px", "355px");
-		rootPanel.add(tabLayoutPanel, 10, 10);
-		tabLayoutPanel.setSize("633px", "375px");
+		Button btnExcluir = new Button("Excluir");
+		absolutePanel.add(btnExcluir, 256, 323);
+		
+		DatePicker datePicker = new DatePicker();
+		absolutePanel.add(datePicker, 430, 85);
+		datePicker.setSize("189px", "101px");
+		
+		Label lblFornecedor = new Label("Fornecedor:");
+		absolutePanel.add(lblFornecedor, 171, 85);
+		lblFornecedor.setSize("75px", "18px");
+		
+		ListBox listBox_1 = new ListBox();
+		absolutePanel.add(listBox_1, 242, 85);
+		listBox_1.setSize("94px", "18px");
 	}
 }

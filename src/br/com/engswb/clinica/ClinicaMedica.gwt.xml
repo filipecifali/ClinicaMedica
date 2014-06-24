@@ -21,7 +21,7 @@
 
 	<!-- Specify the app entry point class.                         -->
 	<entry-point
-		class='br.com.engswb.clinica.client.estoque.MenuPrincipal' />
+		class='br.com.engswb.clinica.client.estoque.MenuPrincipal1' />
 	<!-- Specify the paths for translatable code                    -->
 	<source path='client' />
 	<source path='shared' />
@@ -33,11 +33,4 @@
 	<!--entry-point
 		class="br.com.engswb.clinica.client.estoque.Medicamentos">
 		</entry-point-->
-	<entry-point class="br.com.engswb.clinica.client.estoque.tela"></entry-point>
-	<entry-point
-		class="br.com.engswb.clinica.client.atendimentosg1.CadastroFuncionario">
-	</entry-point>
-	<entry-point
-		class="br.com.engswb.clinica.client.atendimentosg1.CadastroPaciente">
-	</entry-point>
 </module>

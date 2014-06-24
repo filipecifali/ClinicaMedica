@@ -71,24 +71,26 @@ public class CadastroFuncionario implements EntryPoint {
 	public void setTxtSenha(TextBox txtSenha) {
 		this.txtSenha = txtSenha;
 	}
-	public RootPanel getRootPanel() {
+	/*public RootPanel getRootPanel() {
 		return rootPanel;
 	}
 	public void setRootPanel(RootPanel rootPanel) {
 		this.rootPanel = rootPanel;
-	}
+	}*/
 	
 	public CadastroFuncionario() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	RootPanel rootPanel = RootPanel.get();
+
 	
 	
 	
 
 	@Override
 	public void onModuleLoad() {
+		
+		RootPanel rootPanel = RootPanel.get();
 		
 		Label lblCadastroDeFuncionrio = new Label("Cadastro de Funcion\u00E1rio.");
 		rootPanel.add(lblCadastroDeFuncionrio, 10, 10);
